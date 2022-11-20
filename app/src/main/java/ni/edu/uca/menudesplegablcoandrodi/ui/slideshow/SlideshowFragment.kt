@@ -83,7 +83,7 @@ addDialog?.setView(v)
             addDialog?.setPositiveButton("ok"){
                     dialog,_->  val names = username.text.toString()
                 val number = userno.text.toString()
-                userList.add(UserData("Nombre $names","Numero de telefono $number"))
+                userList.add(UserData("Nombre: $names","Numero de telefono: $number"))
             dialog.dismiss()
             }
             addDialog?.setNegativeButton("cancel"){
