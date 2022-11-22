@@ -26,12 +26,16 @@ class UserAdapter(
             mbNum = v.findViewById<TextView>(R.id.txtSubtitle)
             mMenus = v.findViewById(R.id.mMenus)
             mMenus.setOnClickListener{popupMenus(it)}
+
         }
 
         private fun popupMenus(v:View) {
+
             val position = userList[adapterPosition]
             val popupMenus = PopupMenu(c,v)
             popupMenus.inflate(R.menu.show_menu)
+
+
             popupMenus.setOnMenuItemClickListener {
                 when(it.itemId) {
                     R.id.editText->{
