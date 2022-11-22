@@ -42,16 +42,16 @@ class GalleryFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-       val lista= listOf("Vacaciones","Remuneracion economica")
+        val lista= listOf("Vacaciones","Remuneracion economica")
         val adaptador = context?.let { ArrayAdapter(it,android.R.layout.simple_spinner_item,lista) }
         binding.mySpinner.adapter=adaptador
 
         binding.mySpinner.onItemSelectedListener= object:
-AdapterView.OnItemSelectedListener{
+            AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-               if(p2==1){
-addInfo()
-               }
+                if(p2==1){
+                    addInfo()
+                }
                 else{
 
                 }

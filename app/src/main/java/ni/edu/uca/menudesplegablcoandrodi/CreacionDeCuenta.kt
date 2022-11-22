@@ -11,8 +11,7 @@ import androidx.navigation.findNavController
 import ni.edu.uca.menudesplegablcoandrodi.R
 import ni.edu.uca.menudesplegablcoandrodi.databinding.FragmentCreacionDeCuentaBinding
 import ni.edu.uca.menudesplegablcoandrodi.databinding.FragmentLoginBinding
-
-
+import ni.edu.uca.menudesplegablcoandrodi.model.Shared.Companion.preferen
 
 
 class CreacionDeCuenta : Fragment() {
@@ -40,7 +39,11 @@ class CreacionDeCuenta : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.hide()
         super.onViewCreated(view, savedInstanceState)
         binding.btnRegistro.setOnClickListener {
-            it.findNavController().navigate(R.id.creacionDeCuenta_bienvenida)
+            val user = binding.etUsuario.text.toString()
+            val pass = binding.etContraseA.text.toString()
+            preferen.SaveUsuario(user)
+            preferen.SavePass(pass)
+            it.findNavController().navigate(R.id.login)
 
             (activity as AppCompatActivity).supportActionBar?.show()
         }

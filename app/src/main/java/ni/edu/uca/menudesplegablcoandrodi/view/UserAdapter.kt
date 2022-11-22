@@ -13,7 +13,7 @@ import ni.edu.uca.menudesplegablcoandrodi.model.UserData
 class UserAdapter(
     val c:Context,
     val userList:ArrayList<UserData>
-    ):RecyclerView.Adapter<UserAdapter.UserViewHolder> ()
+):RecyclerView.Adapter<UserAdapter.UserViewHolder> ()
 {
 
     inner class UserViewHolder(val v:View):RecyclerView.ViewHolder(v){
@@ -26,16 +26,12 @@ class UserAdapter(
             mbNum = v.findViewById<TextView>(R.id.txtSubtitle)
             mMenus = v.findViewById(R.id.mMenus)
             mMenus.setOnClickListener{popupMenus(it)}
-
         }
 
         private fun popupMenus(v:View) {
-
             val position = userList[adapterPosition]
             val popupMenus = PopupMenu(c,v)
             popupMenus.inflate(R.menu.show_menu)
-
-
             popupMenus.setOnMenuItemClickListener {
                 when(it.itemId) {
                     R.id.editText->{
@@ -100,12 +96,12 @@ class UserAdapter(
             val menu = popup.get(popupMenus)
             menu.javaClass.getDeclaredMethod("setForceShowIcon",Boolean::class.java)
                 .invoke(menu,true)
-            }
         }
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
-       val inflater = LayoutInflater.from(parent.context)
+        val inflater = LayoutInflater.from(parent.context)
         val v = inflater.inflate(R.layout.list_item_gastos,parent, false, )
         return UserViewHolder(v)
     }
